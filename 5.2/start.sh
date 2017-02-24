@@ -8,4 +8,4 @@
 
 # Note: & added so that kibana runs in a separate process and consul-template runs in this process
 kibana &
-consul-template -consul=$CONSUL_URL -template="/templates/kibana.ctmpl:/opt/kibana/config/kibana.yml:service kibana restart"
+consul-template -consul-addr=$CONSUL_URL -template="/templates/kibana.ctmpl:/opt/kibana/config/kibana.yml:service kibana restart"
