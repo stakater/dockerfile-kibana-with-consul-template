@@ -4,8 +4,8 @@
 A Consul Template powered Kibana docker container.
 
 ## Supported Tags:
-`0.18.0-rc1`, `latest` - with consul template version 0.18.0-rc1
-
+* `5.2-0.18.0`, `latest` - kibana v5.2 with consul template version 0.18.0 ([5.2-0.18.0/Dockerfile](https://github.com/stakater/dockerfile-kibana-with-consul-template/blob/master/5.2/Dockerfile))
+* `4.5-0.18.0-rc1` - kibana v4.5 with consul template version 0.18.0-rc1 ([4.5-0.18.0-rc1/Dockerfile](https://github.com/stakater/dockerfile-kibana-with-consul-template/blob/master/4.5/Dockerfile))
 
 `docker run stakater/kibana-with-consul-template:latest`
 
