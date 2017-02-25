@@ -32,10 +32,11 @@ VOLUME /templates
 # our container will expose port 5044, where kibana will be running
 EXPOSE 5601
 
-# Make daemon service dir for kibana if it doesn't exist,
-# and empty service directory for kibana if it already contains a daemon file
-RUN mkdir -p /etc/service/kibana && rm -rf /etc/service/kibana/*
-
+# Make daemon service dir for kibana if it doesn't exist
+RUN rm -rf /etc/service/kibana \
+    && rm -rf /etc/service/node \
+    && mkdir -p /etc/service/kibana;
+    
 # Add daemon service for kibana-with-consul-template
 ADD start.sh /etc/service/kibana/run
 

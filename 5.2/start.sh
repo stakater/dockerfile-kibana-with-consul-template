@@ -8,4 +8,7 @@
 
 # Note: & added so that kibana runs in a separate process and consul-template runs in this process
 kibana &
-consul-template -consul-addr=$CONSUL_URL -template="/templates/kibana.ctmpl:/opt/kibana/config/kibana.yml:service kibana restart"
+
+# Render template and kill all processes related to kibana
+# runit will start them up again with the new configuration
+consul-template -consul-addr=$CONSUL_URL -template="/templates/kibana.ctmpl:/opt/kibana/config/kibana.yml:kill -KILL $(ps | grep "kibana" | grep -v "grep" | awk '{print $1}')"
