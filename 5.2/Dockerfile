@@ -38,7 +38,8 @@ RUN rm -rf /etc/service/kibana \
     && mkdir -p /etc/service/kibana;
     
 # Add script to stop/kill kibana processes
-ADD stop-kibana.sh /opt/kibana/stop-kibana.sh
+RUN mkdir -p /etc/scripts
+ADD kill-processes.sh /etc/scripts/kill-processes.sh
 
 # Add daemon service for kibana-with-consul-template
 ADD start.sh /etc/service/kibana/run

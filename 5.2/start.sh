@@ -9,6 +9,6 @@
 # Note: & added so that kibana runs in a separate process and consul-template runs in this process
 kibana &
 
-# Render template and kill all processes related to kibana via stop-kibana.sh
+# Render template and kill all processes related to kibana via kill-processes.sh
 # runit will start them up again with the new configuration
-consul-template -consul-addr=$CONSUL_URL -template="/templates/kibana.ctmpl:/opt/kibana/config/kibana.yml:/opt/kibana/stop-kibana.sh"
+consul-template -consul-addr=$CONSUL_URL -template="/templates/kibana.ctmpl:/opt/kibana/config/kibana.yml:/etc/scripts/kill-processes.sh kibana"
